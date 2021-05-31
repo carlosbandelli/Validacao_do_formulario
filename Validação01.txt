@@ -1,0 +1,76 @@
+Existente dois tipos de validação a validação do lado do cliente.
+validacçao cliente:
+é validaçao que voce coloca no campo html front-end
+como exemplo:
+<input type="email" name="email" id ="email" placeholder="email"required><br>
+isso não é bom, pois o usuario pode entrar no código fonte do html e retirar isso
+
+e existe a validação segura via back-end:
+
+que usamos o methodo post
+<form method="POST" action="/form">
+criando uam rota post com form
+exemplo
+app.post("/form",(req,res)=> {
+    
+})
+
+e nesse modod vamos puxar os campos
+app.post("/form",(req,res)=> {
+    var {email,nome, pontos} = req.body
+
+    
+    res.send(email)
+})
+
+
+e agora começa a parte de validação de dados que é um sequencia de if
+
+app.post("/form",(req,res)=> {
+    var {email,nome, pontos} = req.body
+
+    //validação de e-mail
+
+    if(email == undefined || email==""){
+
+    }
+
+    if(pontos == undefined || pontos < 20){
+
+    }
+
+    if(nome == undefined || nome == ""){
+        
+    }
+
+    res.send(email)
+})
+
+criamos uma variavel que o vai ser escrito quando der errado e inserimos no código:
+
+app.post("/form",(req,res)=> {
+    var {email,nome, pontos} = req.body
+
+    var emailError
+    var pontosError
+    var nomeError
+
+    //validação de e-mail
+    if(email == undefined || email==""){
+        emailError = "O e-mail não pode ser vazio" // o que vai ser mostrado caso o usuario não coloque um endereço valido
+
+    }
+    //validação de pontos
+    if(pontos == undefined || pontos < 20){
+        pontosError = "Você não pode ter menos de 20 pontos" // o que vai ser mostrado caso o usuario não coloque um endereço valido
+    }
+    //validação de nome
+    if(nome == undefined || nome == ""){
+        nomeError = "O nome não pode ser vazio"
+
+    }
+
+    res.send(email)
+})
+
+
