@@ -1,0 +1,12 @@
+o que são flash session?
+são seções que só duram uma requisição
+ou seja você cria ela uma vez assim que vocÊ usa ela, voce pode criar uma flash session em uma rota, redirecionar e chamr ela em uma outra rota
+Parar que serve?
+Parar persistir informção entre rotas
+Utilidades?
+Uma das utilidades das flashsession é passar msg de erro, para fazer validação de formulario
+
+Vamor definir algumas flash session?
+
+bibilioteca
+validators
